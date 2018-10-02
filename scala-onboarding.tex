@@ -91,7 +91,7 @@
 \begin{frame}
 \begin{figure}
 \centering
-\includegraphics[width=.5\textheight]{martin}
+\includegraphics[height=.6\textheight]{martin}
 \caption{Martin Odersky, the creator of Scala}
 \end{figure}
 \end{frame}
@@ -118,28 +118,28 @@ Scala supports
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 val value : Int  = 2;
 val text : String = "hello";
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 val value : Int  = 2
 val text : String = "hello" 
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 val value = 2
 val text = "hello" 
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 val value = 2
 val text = "hello"
 
@@ -150,7 +150,7 @@ print(s"${value*2}")
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 var value = 2
 val text = "hello" 
 
@@ -160,7 +160,7 @@ text = "hello" // !!! forbidden
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def square(x : Int) : Int = {
   return x*x
 }
@@ -168,40 +168,29 @@ def square(x : Int) : Int = {
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
-def square(x : Int) : Int = x*x 
-// evaluation strategy 
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def square(x : Int) = x*x
 \end{lstlisting}
 \end{frame}
 
-
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
-def abs(x : Int) : Int =  
-  if (x >= 0) 
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def abs(x : Int) =
+  if (x >= 0) // if statement 
     x 
   else 
     -x  
-
-// if statement vs if control flow 
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def id(x : Int) : Int = {
-  if (x >= 0) {
+  if (x >= 0) { // if control flow  (imperative) 
     print(s"$x")
   }
   x
 }
-
 
 id(-2)
 id(2)
@@ -210,22 +199,23 @@ id(2)
 
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def square(x : Int) = x*x
 
-square(2+3+4) // <-- how is this evaluated
+square(2+3+4) // <-- how is this evaluated?
 \end{lstlisting}
 \end{frame}
 
+\mycomment{%
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def log(message : String) = ???
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def log(message : String) : Unit = ???
 
 // unit type
@@ -234,7 +224,7 @@ def log(message : String) : Unit = ???
 
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 class Logger {
 
   def log(message : String) = ???
@@ -245,7 +235,7 @@ class Logger {
 
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 trait Logger {
   def log(message : String)
 }
@@ -263,7 +253,7 @@ class ProductionLogger() extends Logger {
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 val logger : Logger = ???
 // ...
 logger.log("hello")  
@@ -271,7 +261,7 @@ logger.log("hello")
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 val logger : Logger = ???
 // ...
 logger.log("hello" + sqrt(2-3+10))  
@@ -279,7 +269,7 @@ logger.log("hello" + sqrt(2-3+10))
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 trait Logger {
   def log(message : => String) 
  // call by name vs call by value 
@@ -288,20 +278,20 @@ trait Logger {
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def squareCallByName(x : => Int) = x*x
 \end{lstlisting}
 \end{frame}
 
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 val function : Int => Int = square
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def f(x : Int, y : Int) : Int = x + y
 def g(y : Int) : Int = f(1,y)
 def h(y : Int) : Int => Int = f(_,y)
@@ -312,70 +302,182 @@ h(2)(3)
 \end{lstlisting}
 \end{frame}
 
+}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
-def div(x : Int) : Int = 1/x
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def div(x : Double) : Double = 1/x
 
-div(1)
-div(2)
+div(1) // 1 
+div(2) // 0.5 
 div(0) // java.lang.ArithmeticException: / by zero
 \end{lstlisting}
 \end{frame}
 
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
-def div(x : Int) : Integer = {
-  if ( x != 0 ) 1/x else null // !!!
-}
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def div(x : Double) : Double = 
+  if ( x != 0 ) 
+     1/x 
+  else 
+     null // !!!
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
-def div(x : Int) : Option[Int] = {
-  if ( x != 0 ) Some(1/x) else None
-}
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def div(x : Double) : Option[Double] =
+  if ( x != 0 ) 
+     Some(1/x) 
+  else 
+     None
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
-def div(x : Int) : Option[Int] = {
-  if ( x != 0 ) Some(1/x) else None
-}
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def square(x : Double) = x*x 
 
+def div(x : Double) = 
+  if ( x != 0 ) Some(1/x) else None
+
+square(div(3)) // !! Type mismatch 
+
+val twice = 2*div(3) // !! Type mismatch 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def div(x : Double) = 
+  if ( x != 0 ) Some(1/x) else None
+
+val twice : Option[Double] 
+   = div(3).map( value => 2*value)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def div(x : Double) = 
+  if ( x != 0 ) Some(1/x) else None
+
+div(3).map(2*_)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def square(x : Int) = x*x 
+
+def div(x : Int) = 
+  if ( x != 0 ) Some(1/x) else None
+
+div(0).map(value => square(value))
 div(0).map(square)
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
-def div(x : Int) : Option[Int] = {
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def div(x : Double) = 
   if ( x != 0 ) Some(1/x) else None
-}
 
-def anotherFunction(x : Int) : Option[Int] = ???
+def someFunction(x : Double) : Option[Double] = ???
 
-
-div(0).map(square).flatMap(anotherFunction)
+div(0).flatMap(anotherFunction)
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}
+Crash course in Monads 
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{quotation}
+All told, a monad is just a monoid in the category of endofunctors 
+\end{quotation}
+\begin{flushright}
+S. Mac Lane
+\end{flushright}
+\begin{quotation}
+Monads are return types at guide you through the happy path 
+\end{quotation}
+\begin{flushright}
+E. Mejier 
+\end{flushright}
+\begin{quotation}
+Monads are like burritos 
+\end{quotation}
+\begin{flushright}
+Brent Yorgey
+\end{flushright}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def f(a:A) : Future[B]
+def g(b:B) : Future[C]
+
+val a : A = ???
+
+f(a).flatMap(g)
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+// value classes 
+class ProductId(val id: Int) extends AnyVal 
+
+// case classes 
+case class ProductDetails(
+  id: ProductId,
+  description: String
+) // notice: no val/var 
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def fetchIds() : Future[Seq[ProductId]] = ???
+
+def fetchDetails(ids : Set[ProductId]) 
+   : Future[Map[ProductId, ProductDetails] = ???
+
+def hydrate() = 
+   fetchIds().flatmap(list => fetch)
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+Compare this to \emph{ad-hoc} Kotlin syntax for nullable types 
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+var value : Int? = 0
+
+value?.let { it }
+\end{lstlisting}
+\end{frame}
+
+
+
+
+
 %\begin{frame}[fragile]
-%\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+%\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 %\end{lstlisting}
 %\end{frame}
 
 %\begin{frame}[fragile]
-%\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+%\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 %\end{lstlisting}
 %\end{frame}
 
 
 %\begin{frame}[fragile]
-%\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+%\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 %\end{lstlisting}
 %\end{frame}
 
@@ -389,7 +491,7 @@ div(0).map(square).flatMap(anotherFunction)
 
 
 %\begin{frame}[fragile]
-%\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+%\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 %\end{lstlisting}
 %\end{frame}
 
@@ -425,6 +527,33 @@ div(0).map(square).flatMap(anotherFunction)
 %	\end{itemize}
 %\end{frame}
 
+\begin{frame}
+There is much more than that in terms of language features:
+\begin{itemize}
+ \item higher order functions 
+\item currying 
+\item different evaluation strategies (call by value vs call by name) 
+\item immutable collections 
+\item pattern matching 
+\item algebraic data types (sealed traits, etc)
+\item value classes 
+\item for comprehension 
+\item implicits \ldots 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+In additionl to language features, there is the Scala ecosystem  of libraries:
+\begin{itemize}
+\item Akka HTTP
+\item Akka actors
+\item scalaz 
+\item cats
+\item etc
+\end{itemize}
+\end{frame}
+
+
 \section{Tools}
 
 \begin{frame}
@@ -436,26 +565,37 @@ div(0).map(square).flatMap(anotherFunction)
 \end{frame}
 
 \section{The Play framework}
-
-\begin{frame}
-What is play?
-
-// not really FP 
-// based on Options / Futures, must be already introduced at this point 
-
-\end{frame}
+%\begin{frame}
+%What is play?
+%
+%// not really FP 
+%// based on Options / Futures, must be already introduced at this point 
+%
+%\end{frame}
 
 \begin{frame}
 Structure of a Play project
+
+\begin{figure}
+\centering
+%\includegraphics[width=.5\textheight]{structure}
+\includegraphics[height=.8\textheight]{structure}
+\end{figure}
 \end{frame}
-\begin{frame}
-g8 template 
-\end{frame}
-\begin{frame}
-Sbt configuration 
-\end{frame}
-\begin{frame}
-Route file
+
+
+
+%\begin{frame}
+%Giter8 template 
+%\end{frame}
+
+
+\begin{frame}[fragile]
+Routes file
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+GET   /fetch/:id   
+        controllers.Controller.fetch(id: Int)
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}
@@ -467,43 +607,67 @@ A taste of contract driven development:
 \end{frame}
 
 \begin{frame}
-Controller 
+Controllers: keep them simple 
 \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+@Singleton // JSR 330, guice by default 
+class ProductClient @Inject()(wsClient: WSClient)  
+  (implicit ex: ExecutionContext) { // implicits !! 
+
+  def fetch() =  // using  Play wsclient 
+    wsClient.url("http://test.com").get()
+
+}
+\end{lstlisting}
+\end{frame}
+
+% Error handling 
+% Case classes
+% Value classes
+% Pattern matching 
+% Option
+% Future 
+% implicits 
+
+
+
+%\section{We live in a concurrent world}
+%\begin{frame}[fragile]
+%	% Spoiler
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=.8\textwidth]{concurrency_coffee}
+%		\caption{\url{https://joearms.github.io/published/2013-04-05-concurrent-and-parallel-programming.html}}
+%	\end{figure}
+%\end{frame}
+%\begin{frame}[fragile]
+%Is concurrency relevant for mobile development?
+%	\begin{itemize} 
+%		\item<2-> IO (\eg, network, etc) 
+%		\item<3-> sensors (\eg, gps, etc) 
+%		\item<4-> UI events 
+%		\item<5-> platform lifecycle 
+%	\end{itemize}
+%\end{frame}
 
 \begin{frame}
-Dependency injection (imperative): Guice 
+There is much more than this:
+\begin{itemize}
+\item Json serialization/deserialization 
+\item From futures to HTTP response codes (200, non-200)
+\item etc
+\end{itemize}
 \end{frame}
-
-
-\begin{frame}
-Controllers must be stupid,  keep them simple (this is general architectural rule, no scala specific, no play specific)
-\end{frame}
-
-
-\begin{frame}
-Clients with play : write data classes and write the client 
-\end{frame}
-
-\begin{frame}
-Json parsing 
-\end{frame}
-
-\begin{frame}
-From futures to HTTP responses 
-\end{frame}
-
-
-\begin{frame}
-Hydration 
-\end{frame}
-
 
 \section{Learn more}
 
 \begin{frame}
 \begin{figure}
 \centering
-\includegraphics[width=.5\textheight]{white_book}
+\includegraphics[height=.7\textheight]{white_book}
 \caption{The reference guide}
 \end{figure}
 \end{frame}
@@ -511,7 +675,7 @@ Hydration
 \begin{frame}
 \begin{figure}
 \centering
-\includegraphics[width=.5\textheight]{red_book}
+\includegraphics[height=.7\textheight]{red_book}
 \caption{Gym to master FP in Scala}
 \end{figure}
 \end{frame}
@@ -519,7 +683,7 @@ Hydration
 \begin{frame}
 \begin{figure}
 \centering
-\includegraphics[width=.8\textwidth]{coursera}
+\includegraphics[width=.7\textwidth]{coursera}
 \caption{Functional programming principles in Scala MOOC by Martin Odersky}
 \end{figure}
 \end{frame}
@@ -532,6 +696,22 @@ Online exercises:
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+If you are interested in FP in Scala with attention to mathematical details\ldots 
+
+
+Sergei Winitzki's 
+\emph{Functional programming in the mathematical spirit} video tutorials .
+
+``Long and difficult, yet boring explanations given in excruciating detail.'' (quoting from the posts)  
+
+First lecture here:
+\begin{itemize}
+\item 
+\url{https://www.youtube.com/watch?v=0Ld79Lnzx_o}
+\end{itemize}
+\end{frame}
+
 \plain{Questions?}
 
 %\begin{frame}[allowframebreaks] {References}
@@ -540,10 +720,10 @@ Online exercises:
 %\end{frame}
 
 \end{document}
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 \end{lstlisting}
 
 \begin{frame}
-\begin{lstlisting}[language=Kotlin, basicstyle=\ttfamily]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 \end{lstlisting}
 \end{frame}
