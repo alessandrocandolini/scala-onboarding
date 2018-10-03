@@ -329,6 +329,24 @@ def div(x : Double) : Double =
 \begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 def div(x : Double) : Option[Double] =
   if ( x != 0 ) 
+     Some[Double](1/x) 
+  else 
+     None[Double]
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def div(x : Double) : Option[Double] =
+  if ( x != 0 ) 
+     Some(1/x) 
+  else 
+     None
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+def div(x : Double) = 
+  if ( x != 0 ) 
      Some(1/x) 
   else 
      None
