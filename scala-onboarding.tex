@@ -331,7 +331,7 @@ def div(x : Double) : Option[Double] =
   if ( x != 0 ) 
      Some[Double](1/x) 
   else 
-     None[Double]
+     None
 \end{lstlisting}
 \end{frame}
 \begin{frame}[fragile]
@@ -443,6 +443,24 @@ val a : A = ???
 f(a).flatMap(g)
 \end{lstlisting}
 \end{frame}
+
+
+\begin{frame}
+\begin{itemize}
+\item Option[Option[A]] $\rightarrow$ Option[A]
+\item Future[Future[A]] $\rightarrow$ Future[A]
+\item List[List[A]] $\rightarrow$ List[A]
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+Compare this to \emph{ad-hoc} Kotlin syntax for nullable types 
+\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
+var value : Int? = 0
+
+value?.let { it }
+\end{lstlisting}
+\end{frame}
+
 \begin{frame}[fragile]
 \begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
 // value classes 
@@ -470,14 +488,6 @@ def hydrate() =
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]
-Compare this to \emph{ad-hoc} Kotlin syntax for nullable types 
-\begin{lstlisting}[language=Scala, basicstyle=\ttfamily]
-var value : Int? = 0
-
-value?.let { it }
-\end{lstlisting}
-\end{frame}
 
 
 
@@ -554,6 +564,7 @@ There is much more than that in terms of language features:
 \item immutable collections 
 \item pattern matching 
 \item algebraic data types (sealed traits, etc)
+\item variance and contravariance 
 \item value classes 
 \item for comprehension 
 \item implicits \ldots 
